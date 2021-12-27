@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+  <title>Jeff Reiner</title>
+</svelte:head>
+
+<h1>.design</h1>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/vinyl">/vinyl</a>
+    </li>
+  </ul>
+</nav>
