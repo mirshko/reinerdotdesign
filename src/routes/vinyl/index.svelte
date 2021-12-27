@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
+  import type { RecordSchema } from "./_db";
 
   export const load: Load = async ({ fetch }) => {
     const res = await fetch(`/vinyl/records.json`);
@@ -20,7 +21,7 @@
 </script>
 
 <script lang="ts">
-  export let records: string[];
+  export let records: RecordSchema[];
 </script>
 
 <svelte:head>
@@ -31,7 +32,16 @@
 
 <ul>
   {#each records as record}
-    <li>{record}</li>
+    <li>
+      <img
+        alt={record.title}
+        async
+        class="cover_image"
+        decoding="async"
+        loading="lazy"
+        src={record.cover_image}
+      />
+    </li>
   {/each}
 </ul>
 
@@ -45,5 +55,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .cover_image {
+    display: block;
+
+    width: 100%;
+    max-width: 16rem;
+
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
   }
 </style>
